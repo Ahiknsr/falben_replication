@@ -5,16 +5,32 @@ from scipy.special import expit
 n_participants = 70
 trials_per_owner = 112
 
-# Targets aligned strictly to reported marginal means
+"""
+Success condition
+"""
+# # Targets aligned strictly to reported marginal means
+# rt_targets = {
+#     'none': {'self': 509, 'friend': 523},
+#     'equal': {'self': 499, 'friend': 499}
+# }
+
+# # Targets mapped to exact logit values for binomial generation
+# acc_targets = {
+#     'none': {'self': 2.09, 'friend': 1.90}, # 89% and 87%
+#     'equal': {'self': 1.51, 'friend': 1.99} # 82% and 88%
+# }
+
+"""
+Failure condition
+"""
 rt_targets = {
-    'none': {'self': 509, 'friend': 523},
-    'equal': {'self': 499, 'friend': 499}
+'none': {'self': 509, 'friend': 523},
+'equal': {'self': 509, 'friend': 523}
 }
 
-# Targets mapped to exact logit values for binomial generation
 acc_targets = {
-    'none': {'self': 2.09, 'friend': 1.90}, # 89% and 87%
-    'equal': {'self': 1.51, 'friend': 1.99} # 82% and 88%
+'none': {'self': 2.09, 'friend': 1.90},
+'equal': {'self': 2.09, 'friend': 1.90}
 }
 
 data_list = []
@@ -46,4 +62,4 @@ for p_idx in range(n_participants):
             })
 
 df = pd.DataFrame(data_list)
-df.to_csv('falben_exp1_simulated.csv', index=False)
+df.to_csv('falben_exp1_simulated_f.csv', index=False)

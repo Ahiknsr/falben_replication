@@ -2,11 +2,12 @@ library(tidyverse)
 library(lme4)
 library(lmerTest)
 library(emmeans)
+library(patchwork)
 
-df <- read_csv("falben_exp2_simulated.csv") %>%
+df <- read_csv("falben_exp2_simulated_f.csv") %>%
   mutate(
-    expectancy = factor(expectancy, levels = c("self", "equal", "friend")),
-    owner = factor(owner, levels = c("self", "friend"))
+    expectancy = factor(expectancy, levels = c("self", "friend", "equal"), labels = c("Self", "Friend", "Equal")),
+    owner = factor(owner, levels = c("self", "friend"), labels = c("Self-Owned", "Friend-Owned"))
   )
 
 rt_data <- df %>% filter(accuracy == 1)
@@ -25,30 +26,41 @@ print(acc_simple_effects)
 
 rt_summary <- rt_data %>%
   group_by(expectancy, owner) %>%
-  summarise(value = mean(rt), se = sd(rt) / sqrt(n()), .groups = "drop") %>%
-  mutate(metric = "Reaction Time (ms)")
+  summarise(value = mean(rt), se = sd(rt) / sqrt(n()), .groups = "drop")
 
 acc_summary <- df %>%
   group_by(expectancy, owner) %>%
-  summarise(value = mean(accuracy), se = sd(accuracy) / sqrt(n()), .groups = "drop") %>%
-  mutate(metric = "Accuracy (Proportion)")
+  summarise(value = mean(accuracy) * 100, se = (sd(accuracy) / sqrt(n())) * 100, .groups = "drop")
 
-plot_data <- bind_rows(rt_summary, acc_summary)
-
-ggplot(plot_data, aes(x = expectancy, y = value, group = owner, linetype = owner, shape = owner)) +
-  geom_line(linewidth = 1) +
-  geom_point(size = 3) +
-  geom_errorbar(aes(ymin = value - se, ymax = value + se), width = 0.1) +
-  facet_wrap(~ metric, scales = "free_y") +
+p1 <- ggplot(rt_summary, aes(x = expectancy, y = value, fill = owner)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), color = "black", width = 0.7) +
+  geom_errorbar(aes(ymin = value - se, ymax = value + se), position = position_dodge(width = 0.8), width = 0.15) +
+  scale_fill_manual(values = c("Self-Owned" = "grey40", "Friend-Owned" = "grey90")) +
+  coord_cartesian(ylim = c(380, 540)) +
+  scale_y_continuous(breaks = seq(380, 540, by = 40)) +
   theme_classic() +
-  labs(
-    x = "Expectancy Condition",
-    y = "Measure",
-    linetype = "Stimulus Owner",
-    shape = "Stimulus Owner"
-  ) +
+  labs(x = "Expectancy", y = "Response Time (ms)") +
   theme(
-    strip.background = element_blank(),
-    strip.text = element_text(size = 12),
-    legend.position = "bottom"
+    legend.position = c(0.85, 0.85),
+    legend.title = element_blank(),
+    legend.background = element_blank(),
+    axis.text = element_text(color = "black")
   )
+
+p2 <- ggplot(acc_summary, aes(x = expectancy, y = value, fill = owner)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.8), color = "black", width = 0.7) +
+  geom_errorbar(aes(ymin = value - se, ymax = value + se), position = position_dodge(width = 0.8), width = 0.15) +
+  scale_fill_manual(values = c("Self-Owned" = "grey40", "Friend-Owned" = "grey90")) +
+  coord_cartesian(ylim = c(70, 100)) +
+  scale_y_continuous(breaks = seq(70, 100, by = 5)) +
+  theme_classic() +
+  labs(x = "Expectancy", y = "Accuracy (%)") +
+  theme(
+    legend.position = c(0.85, 0.85),
+    legend.title = element_blank(),
+    legend.background = element_blank(),
+    axis.text = element_text(color = "black")
+  )
+
+combined_plot <- p1 / p2
+print(combined_plot)

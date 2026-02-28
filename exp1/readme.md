@@ -1,3 +1,5 @@
+## Successful replication 
+![](exp1_results.png?raw=true)
 ```
 > rt_model <- lmer(rt_sec ~ expectancy * owner + (1 | participant), data = rt_data)
 > summary(rt_model)
@@ -69,8 +71,80 @@ expctncy1:1  0.036 -0.005  0.117
 
 ```
 
-![](exp1_results.png?raw=true)
+## Replication Failure
+![](exp1_results_f.png?raw=true)
+```
+> rt_model <- lmer(rt_sec ~ expectancy * owner + (1 | participant), data = rt_data)
+> summary(rt_model)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: rt_sec ~ expectancy * owner + (1 | participant)
+   Data: rt_data
 
+REML criterion at convergence: -21187.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.1953 -0.6739  0.0146  0.6731  3.8111 
+
+Random effects:
+ Groups      Name        Variance Std.Dev.
+ participant (Intercept) 0.002161 0.04648 
+ Residual                0.011919 0.10918 
+Number of obs: 13492, groups:  participant, 70
+
+Fixed effects:
+                     Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)         5.153e-01  5.635e-03  6.806e+01  91.439   <2e-16 ***
+expectancy1         5.475e-03  5.635e-03  6.806e+01   0.972    0.335    
+owner1             -8.410e-03  9.404e-04  1.342e+04  -8.944   <2e-16 ***
+expectancy1:owner1 -1.195e-04  9.404e-04  1.342e+04  -0.127    0.899    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) expct1 owner1
+expectancy1  0.000              
+owner1      -0.002 -0.001       
+expctncy1:1 -0.001 -0.002 -0.001
+> 
+> acc_model <- glmer(accuracy ~ expectancy * owner + (1 | participant), 
++                    data = clean_data, family = binomial)
+> summary(acc_model)
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: binomial  ( logit )
+Formula: accuracy ~ expectancy * owner + (1 | participant)
+   Data: clean_data
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+  12212.2   12250.5   -6101.1   12202.2     15675 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-5.5332  0.2701  0.3428  0.4297  0.7076 
+
+Random effects:
+ Groups      Name        Variance Std.Dev.
+ participant (Intercept) 0.3629   0.6024  
+Number of obs: 15680, groups:  participant, 70
+
+Fixed effects:
+                   Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         1.94696    0.07651  25.445  < 2e-16 ***
+expectancy1         0.03083    0.07633   0.404 0.686248    
+owner1              0.08262    0.02350   3.516 0.000438 ***
+expectancy1:owner1  0.04213    0.02350   1.793 0.072968 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) expct1 owner1
+expectancy1 0.006               
+owner1      0.019  0.010        
+expctncy1:1 0.010  0.018  0.016 
+```
+
+
+## Issue with replicating original data
 
 ```
 The statistical discrepancies in the paper stem from a conflict between the reported cell means (specific condition averages) and the regression coefficients ($b$ values).
