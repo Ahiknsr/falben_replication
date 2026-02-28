@@ -53,3 +53,15 @@ responses were more accurate to self-owned compared with friend-owned objects (b
 
 ![](images/exp2_fig2.png?raw=true)
 ## Experiment 3
+
+Thirty-six undergraduates (11 male, Mage = 20.14, SD = 1.91) took part in the research. The experiment had 2 (Expectancy: self-expected vs. friend-expected) × 2 (Owner: self vs. friend) repeated-measures design. 
+
+the experiment comprised an object-classification task featuring two categories of objects: pencils and pens. The task closely followed Experiment 2, but with two modifications. First, as stimulus-prioritisation was not observed when self-owned and friend-owned objects were equally likely to be presented during the task (see Experiments 1 and 2), this condition was dropped. Second, across two blocks of trials, although participants expected either self-objects or friend-objects to predominate (e.g., Block 1, 75% self-objects and 25% friend-objects; Block 2, 75% friend-objects and 25% self-objects), in reality the opposite was the case (e.g., Block 1, 25% self-objects and 75% friend-objects; Block 2, 25% friend-objects and 75% self-objects). The order of the experimental blocks was counterbalanced across participants and each block comprised 224 trials (e.g., 168 self-trials and 56 friend-trials).
+RT and accuracy. Responses faster than 200 ms were excluded from the analysis, eliminating approximately 2% of the overall number of trials. A multilevel model analysis of the RTs (correct responses) yielded a main effect of Expectancy (b = –.008, SE = .002, t = –4.94, p < .001), such that responses were faster in the self-expected (but friend-predominated) condition (M = 495 ms, SD = 88 ms) than the friend-expected (but self-predominated) condition (M = 514 ms, SD = 92 ms). A main effect of Owner (b = –.003, SE = .002, t = –2.03, p = .042) was also observed,
+indicating that RTs were faster to self-owned (M = 501 ms, SD = 86 ms) compared with friend-owned (M = 508 ms, SD = 94 ms) items. Finally, a significant Expectancy × Owner (b = .019, SE = .002, t = 10.95, p < .001) interaction emerged (see Figure 3). Further analysis of the interaction revealed that, when self-trials were expected (but friend-trials predominated), responses were faster to friend-owned compared with self-owned objects (b = .014,
+SE = .003, t = 6.07, p < .001). In contrast, when friend-trials were expected (but self-trials predominated), responses were faster to self-owned than to friend-owned objects
+(b = –.021, SE = .002, t = –8.44, p < .001).
+
+A multilevel logistic regression analysis on the accuracy of responses reveal a significant Expectancy × Owner (b = –.629, SE = .032, z = –19.95, p < .001) interaction (seeFigure 3). Further analysis of the interaction revealed that,when self-trials were expected (but friend-trials predominated), responses were more accurate to friend-owned compared with self-owned objects (b = –.598, SE = .045, z = –13.23, p < .001). In contrast, when friend-trials were
+expected (but self-trials predominated), responses were more accurate to self-owned than to friend-owned objects (b = .671, SE = .044, t = 15.16, p < .001).
+![](images/exp3_fig3.png?raw=true)
