@@ -25,12 +25,12 @@ Failure condition
 """
 rt_targets = {
 'none': {'self': 509, 'friend': 523},
-'equal': {'self': 509, 'friend': 523}
+'equal': {'self': 507, 'friend': 521}
 }
 
 acc_targets = {
 'none': {'self': 2.09, 'friend': 1.90},
-'equal': {'self': 2.09, 'friend': 1.90}
+'equal': {'self': 1.98, 'friend': 1.83}
 }
 
 data_list = []

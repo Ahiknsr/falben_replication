@@ -20,13 +20,13 @@ def generate_experiment_3_data(n_participants=36):
     Failure condition
     """
     rt_means = {
-        'self': {'self': 485, 'friend': 525},
-        'friend': {'self': 577, 'friend': 493}
+        'self': {'self': 490, 'friend': 523},
+        'friend': {'self': 503, 'friend': 517}
     }
 
     acc_probs = {
-        'self': {'self': 0.90, 'friend': 0.75},
-        'friend': {'self': 0.75, 'friend': 0.90}
+        'self': {'self': 0.89, 'friend': 0.76},
+        'friend': {'self': 0.84, 'friend': 0.80}
     }
     for subj in range(1, n_participants + 1):
         participant_id = f'P{subj}'

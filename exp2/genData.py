@@ -24,15 +24,15 @@ def generate_experiment_2_data(n_participants=72):
     Failure condition
     """
     rt_means = {
-        "self": {"self": 455, "friend": 483},
-        "friend": {"self": 455, "friend": 483},
-        "equal": {"self": 455, "friend": 483},
+        "self": {"self": 455, "friend": 485},
+        "friend": {"self": 463, "friend": 478},
+        "equal": {"self": 459, "friend": 476},
     }
 
     acc_probs = {
         "self": {"self": 0.88, "friend": 0.76},
-        "friend": {"self": 0.88, "friend": 0.76},
-        "equal": {"self": 0.88, "friend": 0.76},
+        "friend": {"self": 0.85, "friend": 0.79},
+        "equal": {"self": 0.82, "friend": 0.80},
     }
 
     for subj in range(1, n_participants + 1):

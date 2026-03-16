@@ -80,32 +80,32 @@ Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmer
 Formula: rt_sec ~ expectancy * owner + (1 | participant)
    Data: rt_data
 
-REML criterion at convergence: -21187.9
+REML criterion at convergence: -20901.4
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--3.1953 -0.6739  0.0146  0.6731  3.8111 
+-3.7066 -0.6818 -0.0074  0.6819  4.2519 
 
 Random effects:
  Groups      Name        Variance Std.Dev.
- participant (Intercept) 0.002161 0.04648 
- Residual                0.011919 0.10918 
-Number of obs: 13492, groups:  participant, 70
+ participant (Intercept) 0.002376 0.04874 
+ Residual                0.012122 0.11010 
+Number of obs: 13458, groups:  participant, 70
 
 Fixed effects:
                      Estimate Std. Error         df t value Pr(>|t|)    
-(Intercept)         5.153e-01  5.635e-03  6.806e+01  91.439   <2e-16 ***
-expectancy1         5.475e-03  5.635e-03  6.806e+01   0.972    0.335    
-owner1             -8.410e-03  9.404e-04  1.342e+04  -8.944   <2e-16 ***
-expectancy1:owner1 -1.195e-04  9.404e-04  1.342e+04  -0.127    0.899    
+(Intercept)         5.145e-01  5.903e-03  6.806e+01  87.165  < 2e-16 ***
+expectancy1        -2.424e-03  5.903e-03  6.806e+01  -0.411    0.683    
+owner1             -7.323e-03  9.495e-04  1.339e+04  -7.713 1.32e-14 ***
+expectancy1:owner1  1.148e-03  9.495e-04  1.339e+04   1.209    0.227    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             (Intr) expct1 owner1
 expectancy1  0.000              
-owner1      -0.002 -0.001       
-expctncy1:1 -0.001 -0.002 -0.001
+owner1      -0.002  0.000       
+expctncy1:1  0.000 -0.002  0.007
 > 
 > acc_model <- glmer(accuracy ~ expectancy * owner + (1 | participant), 
 +                    data = clean_data, family = binomial)
@@ -116,31 +116,31 @@ Formula: accuracy ~ expectancy * owner + (1 | participant)
    Data: clean_data
 
       AIC       BIC    logLik -2*log(L)  df.resid 
-  12212.2   12250.5   -6101.1   12202.2     15675 
+  12400.9   12439.2   -6195.5   12390.9     15675 
 
 Scaled residuals: 
     Min      1Q  Median      3Q     Max 
--5.5332  0.2701  0.3428  0.4297  0.7076 
+-4.3283  0.2830  0.3595  0.4208  0.8313 
 
 Random effects:
  Groups      Name        Variance Std.Dev.
- participant (Intercept) 0.3629   0.6024  
+ participant (Intercept) 0.2918   0.5402  
 Number of obs: 15680, groups:  participant, 70
 
 Fixed effects:
-                   Estimate Std. Error z value Pr(>|z|)    
-(Intercept)         1.94696    0.07651  25.445  < 2e-16 ***
-expectancy1         0.03083    0.07633   0.404 0.686248    
-owner1              0.08262    0.02350   3.516 0.000438 ***
-expectancy1:owner1  0.04213    0.02350   1.793 0.072968 .  
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)         1.905296   0.069260  27.509  < 2e-16 ***
+expectancy1        -0.028032   0.069103  -0.406 0.684993    
+owner1              0.077240   0.023291   3.316 0.000912 ***
+expectancy1:owner1  0.005771   0.023291   0.248 0.804289    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 Correlation of Fixed Effects:
             (Intr) expct1 owner1
-expectancy1 0.006               
-owner1      0.019  0.010        
-expctncy1:1 0.010  0.018  0.016 
+expectancy1  0.000              
+owner1       0.019  0.001       
+expctncy1:1  0.001  0.018 -0.023 
 ```
 
 
