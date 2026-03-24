@@ -1,0 +1,16 @@
+[-----------------100%-----------------] 141 of 140 complete in 72.6 sec
+    PPC saved.
+
+  [Step 7 / 7] Building final summary table…
+
+
+============================================================
+  FINAL SUMMARY — Successful vs Failed Replication
+============================================================
+                              evidence            mean_z             p_bias
+replication                     failed successful failed successful  failed successful
+experiment stim_cond
+Exp1       equal      extremely strong     strong  0.528      0.485  0.0000     0.0733
+           none       extremely strong   moderate  0.515      0.507  0.0015     0.1656
+
+  All outputs saved to: output_files_small

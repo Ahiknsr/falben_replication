@@ -1,0 +1,5 @@
+,,evidence,evidence,mean_z,mean_z,p_bias,p_bias
+replication,,failed,successful,failed,successful,failed,successful
+experiment,stim_cond,,,,,,
+Exp1,equal,extremely strong,strong,0.528,0.485,0.0,0.0733
+Exp1,none,extremely strong,moderate,0.515,0.507,0.0015,0.1656
