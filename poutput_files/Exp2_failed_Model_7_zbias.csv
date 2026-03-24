@@ -1,0 +1,4 @@
+experiment,replication,stim_cond,mean_z,pBayes_self,pBayes_friend,p_bias,direction,evidence
+Exp2,failed,self,0.579,1.0,0.0,0.0,self,extremely strong
+Exp2,failed,friend,0.429,0.0,1.0,0.0,friend,extremely strong
+Exp2,failed,equal,0.514,0.9993,0.0007,0.0007,self,extremely strong
